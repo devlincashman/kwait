@@ -45,25 +45,31 @@ kwait -n my-namespace -kind deployment -name my-deployment
 #### Examples
 
 Wait for all pods with a following label to enter 'Ready' state:
-kwait pod -lapp=example
+`kwait pod -lapp=example`
 
 Wait for all selected pods to enter the 'Ready' state:
-kwait pod -l"release in (develop)"
+
+`kwait pod -l"release in (develop)"`
 
 Wait for all pods with a following label to enter 'Ready' or 'Error' state:
-kwait pod-we -lapp=example
+
+`kwait pod-we -lapp=example`
 
 Wait for at least one pod to enter the 'Ready' state, even when the other ones are in 'Error' state:
-kwait pod-wr -lapp=example
+
+`kwait pod-wr -lapp=example`
 
 Wait for all the pods in that job to have a 'Succeeded' state:
-kwait job examplejob
+
+`kwait job examplejob`
 
 Wait for all the pods in that job to have a 'Succeeded' or 'Failed' state:
-kwait job-we examplejob
+
+`kwait job-we examplejob`
 
 Wait for at least one pod in that job to have 'Succeeded' state, does not mind some 'Failed' ones:
-kwait job-wr examplejob
+
+`kwait job-wr examplejob`
 
 The program will wait until the resource exists and is ready or until it times out or fails a condition.
 
