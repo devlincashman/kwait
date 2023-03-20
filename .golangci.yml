@@ -1,0 +1,45 @@
+linters-settings:
+  govet:
+    check-shadowing: true
+  golint:
+    min-confidence: 0
+  gocyclo:
+    min-complexity: 10
+  gocognit:
+    min-complexity: 10
+  staticcheck:
+    go: "1.x"
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+
+linters:
+  disable-all: true
+  enable:
+    - govet
+    - golint
+    - gocyclo
+    - gocognit
+    - staticcheck
+    - goconst
+    - misspell
+    - unconvert
+    - unparam
+    - scopelint
+    - errcheck
+    - ineffassign
+    - typecheck
+    - varcheck
+    - structcheck
+    - deadcode
+
+issues:
+  exclude-use-default: false
+  new: false
+  exclude-rules:
+    - linters:
+        - golint
+      text: "exported (method|function|type|const) (.+) should have comment or be unexported"
+
+run:
+  timeout: 5m

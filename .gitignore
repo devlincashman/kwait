@@ -1,3 +1,34 @@
+
+output.txt
+
+# Binary
+/bin/
+
+# Go
+*.exe
+*.test
+*.prof
+*.out
+*.o
+*.a
+*.so
+/vendor/
+
+# Dependency directories
+Gopkg.lock
+go.sum
+
+# Build and test cache
+_data/
+_testmain.go
+*.test
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
@@ -13,3 +44,5 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+dev-local/
+docs/
