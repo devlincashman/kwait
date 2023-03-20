@@ -11,7 +11,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -o kwait ./cmd/kwait
 
 # Final stage
-FROM gcr.io/distroless/base-debian10
+FROM gcr.io/distroless/base-debian11
 
 COPY --from=build /app/kwait /usr/local/bin/kwait
 

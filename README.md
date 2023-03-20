@@ -2,6 +2,8 @@
 
 🚀 A simple, yet powerful Go library and CLI tool to wait for Kubernetes resources to enter the desired state. 🚀
 
+Entirely inspired by the amazing [k8s-wait-for](https://github.com/groundnuty/k8s-wait-for) project. The cli and featureset of kwait is designed to be a superset of [k8s-wait-for](https://github.com/groundnuty/k8s-wait-for)'s work with the power of Go!
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/devlincashman/kwait)](https://goreportcard.com/report/github.com/devlincashman/kwait)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -40,7 +42,30 @@ To wait for a resource to become ready, simply run the kwait program and specify
 kwait -n my-namespace -kind deployment -name my-deployment
 ```
 
-The program will wait until the deployment is ready (i.e., all of its replicas are available) or until it times out.
+#### Examples
+
+Wait for all pods with a following label to enter 'Ready' state:
+kwait pod -lapp=example
+
+Wait for all selected pods to enter the 'Ready' state:
+kwait pod -l"release in (develop)"
+
+Wait for all pods with a following label to enter 'Ready' or 'Error' state:
+kwait pod-we -lapp=example
+
+Wait for at least one pod to enter the 'Ready' state, even when the other ones are in 'Error' state:
+kwait pod-wr -lapp=example
+
+Wait for all the pods in that job to have a 'Succeeded' state:
+kwait job examplejob
+
+Wait for all the pods in that job to have a 'Succeeded' or 'Failed' state:
+kwait job-we examplejob
+
+Wait for at least one pod in that job to have 'Succeeded' state, does not mind some 'Failed' ones:
+kwait job-wr examplejob
+
+The program will wait until the resource exists and is ready or until it times out or fails a condition.
 
 ## Supported Resource Types
 
